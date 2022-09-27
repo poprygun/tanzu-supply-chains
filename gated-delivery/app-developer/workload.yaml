@@ -1,19 +1,23 @@
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
-  name: tanzu-java-web-app
+  name: client-profile
   namespace: default
   labels:
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/has-tests: "true"
-    app.kubernetes.io/part-of: tanzu-java-web-app
+    app.kubernetes.io/part-of: client-profile
 spec:
   params:
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
+  build:
+    env:
+    - name: BP_JVM_VERSION
+      value: "18"
   source:
     git:
-      url: https://github.com/poprygun/tanzu-java-web-app.git
+      url: https://gitlab.eng.vmware.com/vmware-navigator-practice/tooling/client-profile.git
       ref:
-        branch: master
+        branch: main
