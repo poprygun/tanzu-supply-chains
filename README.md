@@ -58,3 +58,7 @@ kubectl apply -f developer/workload-kn.yaml
 kubectl tree workload client-profile-kn
 kubectl get all --selector serving.knative.dev/service=client-profile
 ```
+
+## Resources
+
+[Tanzu Commands](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.0/tap/GUID-cli-plugins-apps-command-reference-tanzu_apps_workload_create.html)
