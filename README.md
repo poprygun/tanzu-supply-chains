@@ -62,3 +62,11 @@ kubectl get all --selector serving.knative.dev/service=client-profile
 ## Resources
 
 [Tanzu Commands](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.0/tap/GUID-cli-plugins-apps-command-reference-tanzu_apps_workload_create.html)
+
+[TAP GUI](http://tap-gui.ashumilov.tapdemo.vmware.com/)
+
+```bash
+tanzu apps workload create -f app-developer/workload.yaml
+```
+
+kapp logs -f -a tanzu-java-web-app -n my-apps
