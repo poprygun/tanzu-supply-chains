@@ -1,0 +1,247 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: carto.run/v1alpha1
+kind: ClusterSupplyChain
+metadata:
+  annotations:
+    kapp.k14s.io/identity: v1;/carto.run/ClusterSupplyChain/source-to-url;carto.run/v1alpha1
+    kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"ClusterSupplyChain","metadata":{"labels":{"kapp.k14s.io/app":"1663362748784418035","kapp.k14s.io/association":"v1.4e1a1027543b1d663294132ebfdd4f33"},"name":"source-to-url"},"spec":{"params":[{"name":"maven_repository_url","value":"https://repo.maven.apache.org/maven2"},{"default":"main","name":"gitops_branch"},{"default":"supplychain","name":"gitops_user_name"},{"default":"supplychain","name":"gitops_user_email"},{"default":"supplychain@cluster.local","name":"gitops_commit_message"},{"default":"git-credentials","name":"gitops_ssh_secret"}],"resources":[{"name":"source-provider","params":[{"name":"serviceAccount","value":"default"},{"name":"gitImplementation","value":"go-git"}],"templateRef":{"kind":"ClusterSourceTemplate","name":"source-template"}},{"name":"deliverable","params":[{"name":"registry","value":{"ca_cert_data":"-----BEGIN
+      CERTIFICATE-----\nMIIGLjCCBBagAwIBAgIUZ35en3Q+bQzGJJEy5N37gDO5xbAwDQYJKoZIhvcNAQEN\nBQAwejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExDDAKBgNVBAcM\nA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0xKTAnBgNVBAMMIGhh\ncmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMB4XDTIyMDkxNDE3MzI0MVoX\nDTI0MTIxNzE3MzI0MVowejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3Ju\naWExDDAKBgNVBAcMA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0x\nKTAnBgNVBAMMIGhhcmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMIICIjAN\nBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA8V3d1deT7Z7rj20fLOkTwlQdXMbg\nyu++Avs3GL7YBtnMxSOK3SsZlLm8EPlO1jRU4qVMpBZsID3JtH+Y6Ds7YBP0Yvy5\noy3IYXC0eps0SFVKXm9PDsS3pe9w/puchM9EM2+g4u5fZzL1uQgsu/5/ZRgxDnl8\nmnWK28MRgOFN5Mda0a9heAZF2NDihV1O81RNDJGiQ/5OI2NSBGO6TyqK6qhaVtkU\nwfrMCU7FznilvpIReQWBRn++WzT73VNcADda2WyjfKJ2jhzoZzzLPhsjz5O1ifkc\nVXncCrM9IN9svbzPA20anu2fAUIVEfzhRkRNceh5eE1llUblUsMaAQcxJScZ0KEd\naWb0Uj3MvcL71pzdS3Ua7zVfvimzg6OW//PwRuPZwqhGbKsmoL6TXHS9pjOkzzQ2\nELRbs20Xed4dIPvyrie7eK8pQRwraqCVcv6LU1iwH5twcvTcph4EyMD3L0b+yGtT\nfL2vUZ+rAeNeD0SPXlItALckFx/Q73s6dattNItVLXsqzl9Y+7wDv66zq/QbJe4I\n1zsAIYG8ev963kK4X4g2eu+NiyhPsROVuxAh5PhemGN2n6VpUkDiXf2joVtIU5YF\nAZjbHxWx3x49akEGHK+WE4oteXzH23xrSYs/PyHENO5tCZB0M+pBpxr/rB7OD7dM\nxCj3Ii/2mn8q3dkCAwEAAaOBqzCBqDAfBgNVHSMEGDAWgBRwua+bT3gDkM7fj+MV\n97Hz4n9CuTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEF\nBQcDATA5BgNVHREEMjAwgiBoYXJib3IuaDJvLTQtMTMzMy5oMm8udm13YXJlLmNv\nbYIGaGFyYm9yhwQK3EZhMB0GA1UdDgQWBBTZ/O+Hsrt/XlsFbeMeYg0y2GmO0jAN\nBgkqhkiG9w0BAQ0FAAOCAgEAkA8lY6y96B9upVG7wa4iylUEngqMkMJm0i37GSCG\nh0kKDpd4wGK1AvnCzaLS6JF+QPA961paWmyuR4D2yUOJ5m2XgZdIptG/N668Nne1\npAulc47uBNTr6Um/JrprB8lGSaSs8Cg8sJHnmC7yrBPW6S0yJaO4l1GhafddgZKc\nEgyliIM3EH0OS2QaOVlophVf06krTBiswVNeNRf/T/mcNSZAWPBF3wX+JKhaol25\ndGGiYsZ+gBLO7JKRL4+wC36CO/jnxwvJi8OT1LT66DQxqOCd+F+kygtZvLU2b1wA\n/vlfEY3le1u1T1BmJ1IqXjegmBtIelSn5/GdFoMKWzI2qBsOHh81C+LxKdAG2MJd\n9QhoKXIkUuB+6HcfDsc4eozo3a8WnpAnoTmzWQqCRHa+EZ6vDk0PU7fd6hsQb89z\nxJfZhLdnCLiCRq4cp5iak1+Ev9uTIPIRn1msJXHvcqQJUc9FGS0A6rrU5OnsauGw\nUPPkd7R/xWIgYjquJSXg34y/oxpVxkMlFG5iYJG7nJyf4etxfMELf+vtSHwBjmx9\nc6Wo3SUOCmVj8Bk4d3B3POiC+Cf2/0RRZjq+o6TcD+viwNp24A2rE+IJW8oX3+zV\nFsTiM8PaXEPCawhxmfDDlSfI3FnOP5zX2/dvYUY9FoFRQyO2ckplCiDb04YHu5Xu\nEOA=\n-----END
+      CERTIFICATE-----\n","repository":"supply-chain","server":"harbor.h2o-4-1333.h2o.vmware.com"}}],"templateRef":{"kind":"ClusterTemplate","name":"deliverable-template"}},{"name":"image-builder","params":[{"name":"serviceAccount","value":"default"},{"name":"registry","value":{"ca_cert_data":"-----BEGIN
+      CERTIFICATE-----\nMIIGLjCCBBagAwIBAgIUZ35en3Q+bQzGJJEy5N37gDO5xbAwDQYJKoZIhvcNAQEN\nBQAwejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExDDAKBgNVBAcM\nA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0xKTAnBgNVBAMMIGhh\ncmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMB4XDTIyMDkxNDE3MzI0MVoX\nDTI0MTIxNzE3MzI0MVowejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3Ju\naWExDDAKBgNVBAcMA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0x\nKTAnBgNVBAMMIGhhcmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMIICIjAN\nBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA8V3d1deT7Z7rj20fLOkTwlQdXMbg\nyu++Avs3GL7YBtnMxSOK3SsZlLm8EPlO1jRU4qVMpBZsID3JtH+Y6Ds7YBP0Yvy5\noy3IYXC0eps0SFVKXm9PDsS3pe9w/puchM9EM2+g4u5fZzL1uQgsu/5/ZRgxDnl8\nmnWK28MRgOFN5Mda0a9heAZF2NDihV1O81RNDJGiQ/5OI2NSBGO6TyqK6qhaVtkU\nwfrMCU7FznilvpIReQWBRn++WzT73VNcADda2WyjfKJ2jhzoZzzLPhsjz5O1ifkc\nVXncCrM9IN9svbzPA20anu2fAUIVEfzhRkRNceh5eE1llUblUsMaAQcxJScZ0KEd\naWb0Uj3MvcL71pzdS3Ua7zVfvimzg6OW//PwRuPZwqhGbKsmoL6TXHS9pjOkzzQ2\nELRbs20Xed4dIPvyrie7eK8pQRwraqCVcv6LU1iwH5twcvTcph4EyMD3L0b+yGtT\nfL2vUZ+rAeNeD0SPXlItALckFx/Q73s6dattNItVLXsqzl9Y+7wDv66zq/QbJe4I\n1zsAIYG8ev963kK4X4g2eu+NiyhPsROVuxAh5PhemGN2n6VpUkDiXf2joVtIU5YF\nAZjbHxWx3x49akEGHK+WE4oteXzH23xrSYs/PyHENO5tCZB0M+pBpxr/rB7OD7dM\nxCj3Ii/2mn8q3dkCAwEAAaOBqzCBqDAfBgNVHSMEGDAWgBRwua+bT3gDkM7fj+MV\n97Hz4n9CuTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEF\nBQcDATA5BgNVHREEMjAwgiBoYXJib3IuaDJvLTQtMTMzMy5oMm8udm13YXJlLmNv\nbYIGaGFyYm9yhwQK3EZhMB0GA1UdDgQWBBTZ/O+Hsrt/XlsFbeMeYg0y2GmO0jAN\nBgkqhkiG9w0BAQ0FAAOCAgEAkA8lY6y96B9upVG7wa4iylUEngqMkMJm0i37GSCG\nh0kKDpd4wGK1AvnCzaLS6JF+QPA961paWmyuR4D2yUOJ5m2XgZdIptG/N668Nne1\npAulc47uBNTr6Um/JrprB8lGSaSs8Cg8sJHnmC7yrBPW6S0yJaO4l1GhafddgZKc\nEgyliIM3EH0OS2QaOVlophVf06krTBiswVNeNRf/T/mcNSZAWPBF3wX+JKhaol25\ndGGiYsZ+gBLO7JKRL4+wC36CO/jnxwvJi8OT1LT66DQxqOCd+F+kygtZvLU2b1wA\n/vlfEY3le1u1T1BmJ1IqXjegmBtIelSn5/GdFoMKWzI2qBsOHh81C+LxKdAG2MJd\n9QhoKXIkUuB+6HcfDsc4eozo3a8WnpAnoTmzWQqCRHa+EZ6vDk0PU7fd6hsQb89z\nxJfZhLdnCLiCRq4cp5iak1+Ev9uTIPIRn1msJXHvcqQJUc9FGS0A6rrU5OnsauGw\nUPPkd7R/xWIgYjquJSXg34y/oxpVxkMlFG5iYJG7nJyf4etxfMELf+vtSHwBjmx9\nc6Wo3SUOCmVj8Bk4d3B3POiC+Cf2/0RRZjq+o6TcD+viwNp24A2rE+IJW8oX3+zV\nFsTiM8PaXEPCawhxmfDDlSfI3FnOP5zX2/dvYUY9FoFRQyO2ckplCiDb04YHu5Xu\nEOA=\n-----END
+      CERTIFICATE-----\n","repository":"supply-chain","server":"harbor.h2o-4-1333.h2o.vmware.com"}},{"default":"default","name":"clusterBuilder"},{"default":"./Dockerfile","name":"dockerfile"},{"default":"./","name":"docker_build_context"},{"default":[],"name":"docker_build_extra_args"}],"sources":[{"name":"source","resource":"source-provider"}],"templateRef":{"kind":"ClusterImageTemplate","options":[{"name":"kpack-template","selector":{"matchFields":[{"key":"spec.params[?(@.name==\"dockerfile\")]","operator":"DoesNotExist"}]}},{"name":"kaniko-template","selector":{"matchFields":[{"key":"spec.params[?(@.name==\"dockerfile\")]","operator":"Exists"}]}}]}},{"images":[{"name":"image","resource":"image-builder"}],"name":"config-provider","params":[{"name":"serviceAccount","value":"default"}],"templateRef":{"kind":"ClusterConfigTemplate","name":"convention-template"}},{"configs":[{"name":"config","resource":"config-provider"}],"name":"app-config","templateRef":{"kind":"ClusterConfigTemplate","name":"config-template"}},{"configs":[{"name":"config","resource":"app-config"}],"name":"config-writer","params":[{"name":"serviceAccount","value":"default"},{"name":"registry","value":{"ca_cert_data":"-----BEGIN
+      CERTIFICATE-----\nMIIGLjCCBBagAwIBAgIUZ35en3Q+bQzGJJEy5N37gDO5xbAwDQYJKoZIhvcNAQEN\nBQAwejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExDDAKBgNVBAcM\nA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0xKTAnBgNVBAMMIGhh\ncmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMB4XDTIyMDkxNDE3MzI0MVoX\nDTI0MTIxNzE3MzI0MVowejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3Ju\naWExDDAKBgNVBAcMA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0x\nKTAnBgNVBAMMIGhhcmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMIICIjAN\nBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA8V3d1deT7Z7rj20fLOkTwlQdXMbg\nyu++Avs3GL7YBtnMxSOK3SsZlLm8EPlO1jRU4qVMpBZsID3JtH+Y6Ds7YBP0Yvy5\noy3IYXC0eps0SFVKXm9PDsS3pe9w/puchM9EM2+g4u5fZzL1uQgsu/5/ZRgxDnl8\nmnWK28MRgOFN5Mda0a9heAZF2NDihV1O81RNDJGiQ/5OI2NSBGO6TyqK6qhaVtkU\nwfrMCU7FznilvpIReQWBRn++WzT73VNcADda2WyjfKJ2jhzoZzzLPhsjz5O1ifkc\nVXncCrM9IN9svbzPA20anu2fAUIVEfzhRkRNceh5eE1llUblUsMaAQcxJScZ0KEd\naWb0Uj3MvcL71pzdS3Ua7zVfvimzg6OW//PwRuPZwqhGbKsmoL6TXHS9pjOkzzQ2\nELRbs20Xed4dIPvyrie7eK8pQRwraqCVcv6LU1iwH5twcvTcph4EyMD3L0b+yGtT\nfL2vUZ+rAeNeD0SPXlItALckFx/Q73s6dattNItVLXsqzl9Y+7wDv66zq/QbJe4I\n1zsAIYG8ev963kK4X4g2eu+NiyhPsROVuxAh5PhemGN2n6VpUkDiXf2joVtIU5YF\nAZjbHxWx3x49akEGHK+WE4oteXzH23xrSYs/PyHENO5tCZB0M+pBpxr/rB7OD7dM\nxCj3Ii/2mn8q3dkCAwEAAaOBqzCBqDAfBgNVHSMEGDAWgBRwua+bT3gDkM7fj+MV\n97Hz4n9CuTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEF\nBQcDATA5BgNVHREEMjAwgiBoYXJib3IuaDJvLTQtMTMzMy5oMm8udm13YXJlLmNv\nbYIGaGFyYm9yhwQK3EZhMB0GA1UdDgQWBBTZ/O+Hsrt/XlsFbeMeYg0y2GmO0jAN\nBgkqhkiG9w0BAQ0FAAOCAgEAkA8lY6y96B9upVG7wa4iylUEngqMkMJm0i37GSCG\nh0kKDpd4wGK1AvnCzaLS6JF+QPA961paWmyuR4D2yUOJ5m2XgZdIptG/N668Nne1\npAulc47uBNTr6Um/JrprB8lGSaSs8Cg8sJHnmC7yrBPW6S0yJaO4l1GhafddgZKc\nEgyliIM3EH0OS2QaOVlophVf06krTBiswVNeNRf/T/mcNSZAWPBF3wX+JKhaol25\ndGGiYsZ+gBLO7JKRL4+wC36CO/jnxwvJi8OT1LT66DQxqOCd+F+kygtZvLU2b1wA\n/vlfEY3le1u1T1BmJ1IqXjegmBtIelSn5/GdFoMKWzI2qBsOHh81C+LxKdAG2MJd\n9QhoKXIkUuB+6HcfDsc4eozo3a8WnpAnoTmzWQqCRHa+EZ6vDk0PU7fd6hsQb89z\nxJfZhLdnCLiCRq4cp5iak1+Ev9uTIPIRn1msJXHvcqQJUc9FGS0A6rrU5OnsauGw\nUPPkd7R/xWIgYjquJSXg34y/oxpVxkMlFG5iYJG7nJyf4etxfMELf+vtSHwBjmx9\nc6Wo3SUOCmVj8Bk4d3B3POiC+Cf2/0RRZjq+o6TcD+viwNp24A2rE+IJW8oX3+zV\nFsTiM8PaXEPCawhxmfDDlSfI3FnOP5zX2/dvYUY9FoFRQyO2ckplCiDb04YHu5Xu\nEOA=\n-----END
+      CERTIFICATE-----\n","repository":"supply-chain","server":"harbor.h2o-4-1333.h2o.vmware.com"}}],"templateRef":{"kind":"ClusterTemplate","name":"config-writer-template"}}],"selector":{"apps.tanzu.vmware.com/workload-type":"web"}}}'
+    kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
+  creationTimestamp: "2022-09-16T21:12:28Z"
+  generation: 1
+  labels:
+    kapp.k14s.io/app: "1663362748784418035"
+    kapp.k14s.io/association: v1.4e1a1027543b1d663294132ebfdd4f33
+  name: source-to-url
+  resourceVersion: "3960785"
+  uid: cd946636-3eac-4bc4-b0fb-14dcc3a0be42
+spec:
+  params:
+  - name: maven_repository_url
+    value: https://repo.maven.apache.org/maven2
+  - default: main
+    name: gitops_branch
+  - default: supplychain
+    name: gitops_user_name
+  - default: supplychain
+    name: gitops_user_email
+  - default: supplychain@cluster.local
+    name: gitops_commit_message
+  - default: git-credentials
+    name: gitops_ssh_secret
+  resources:
+  - name: source-provider
+    params:
+    - name: serviceAccount
+      value: default
+    - name: gitImplementation
+      value: go-git
+    templateRef:
+      kind: ClusterSourceTemplate
+      name: source-template
+  - name: deliverable
+    params:
+    - name: registry
+      value:
+        ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          MIIGLjCCBBagAwIBAgIUZ35en3Q+bQzGJJEy5N37gDO5xbAwDQYJKoZIhvcNAQEN
+          BQAwejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExDDAKBgNVBAcM
+          A1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0xKTAnBgNVBAMMIGhh
+          cmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMB4XDTIyMDkxNDE3MzI0MVoX
+          DTI0MTIxNzE3MzI0MVowejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3Ju
+          aWExDDAKBgNVBAcMA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0x
+          KTAnBgNVBAMMIGhhcmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMIICIjAN
+          BgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA8V3d1deT7Z7rj20fLOkTwlQdXMbg
+          yu++Avs3GL7YBtnMxSOK3SsZlLm8EPlO1jRU4qVMpBZsID3JtH+Y6Ds7YBP0Yvy5
+          oy3IYXC0eps0SFVKXm9PDsS3pe9w/puchM9EM2+g4u5fZzL1uQgsu/5/ZRgxDnl8
+          mnWK28MRgOFN5Mda0a9heAZF2NDihV1O81RNDJGiQ/5OI2NSBGO6TyqK6qhaVtkU
+          wfrMCU7FznilvpIReQWBRn++WzT73VNcADda2WyjfKJ2jhzoZzzLPhsjz5O1ifkc
+          VXncCrM9IN9svbzPA20anu2fAUIVEfzhRkRNceh5eE1llUblUsMaAQcxJScZ0KEd
+          aWb0Uj3MvcL71pzdS3Ua7zVfvimzg6OW//PwRuPZwqhGbKsmoL6TXHS9pjOkzzQ2
+          ELRbs20Xed4dIPvyrie7eK8pQRwraqCVcv6LU1iwH5twcvTcph4EyMD3L0b+yGtT
+          fL2vUZ+rAeNeD0SPXlItALckFx/Q73s6dattNItVLXsqzl9Y+7wDv66zq/QbJe4I
+          1zsAIYG8ev963kK4X4g2eu+NiyhPsROVuxAh5PhemGN2n6VpUkDiXf2joVtIU5YF
+          AZjbHxWx3x49akEGHK+WE4oteXzH23xrSYs/PyHENO5tCZB0M+pBpxr/rB7OD7dM
+          xCj3Ii/2mn8q3dkCAwEAAaOBqzCBqDAfBgNVHSMEGDAWgBRwua+bT3gDkM7fj+MV
+          97Hz4n9CuTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEF
+          BQcDATA5BgNVHREEMjAwgiBoYXJib3IuaDJvLTQtMTMzMy5oMm8udm13YXJlLmNv
+          bYIGaGFyYm9yhwQK3EZhMB0GA1UdDgQWBBTZ/O+Hsrt/XlsFbeMeYg0y2GmO0jAN
+          BgkqhkiG9w0BAQ0FAAOCAgEAkA8lY6y96B9upVG7wa4iylUEngqMkMJm0i37GSCG
+          h0kKDpd4wGK1AvnCzaLS6JF+QPA961paWmyuR4D2yUOJ5m2XgZdIptG/N668Nne1
+          pAulc47uBNTr6Um/JrprB8lGSaSs8Cg8sJHnmC7yrBPW6S0yJaO4l1GhafddgZKc
+          EgyliIM3EH0OS2QaOVlophVf06krTBiswVNeNRf/T/mcNSZAWPBF3wX+JKhaol25
+          dGGiYsZ+gBLO7JKRL4+wC36CO/jnxwvJi8OT1LT66DQxqOCd+F+kygtZvLU2b1wA
+          /vlfEY3le1u1T1BmJ1IqXjegmBtIelSn5/GdFoMKWzI2qBsOHh81C+LxKdAG2MJd
+          9QhoKXIkUuB+6HcfDsc4eozo3a8WnpAnoTmzWQqCRHa+EZ6vDk0PU7fd6hsQb89z
+          xJfZhLdnCLiCRq4cp5iak1+Ev9uTIPIRn1msJXHvcqQJUc9FGS0A6rrU5OnsauGw
+          UPPkd7R/xWIgYjquJSXg34y/oxpVxkMlFG5iYJG7nJyf4etxfMELf+vtSHwBjmx9
+          c6Wo3SUOCmVj8Bk4d3B3POiC+Cf2/0RRZjq+o6TcD+viwNp24A2rE+IJW8oX3+zV
+          FsTiM8PaXEPCawhxmfDDlSfI3FnOP5zX2/dvYUY9FoFRQyO2ckplCiDb04YHu5Xu
+          EOA=
+          -----END CERTIFICATE-----
+        repository: supply-chain
+        server: harbor.h2o-4-1333.h2o.vmware.com
+    templateRef:
+      kind: ClusterTemplate
+      name: deliverable-template
+  - name: image-builder
+    params:
+    - name: serviceAccount
+      value: default
+    - name: registry
+      value:
+        ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          MIIGLjCCBBagAwIBAgIUZ35en3Q+bQzGJJEy5N37gDO5xbAwDQYJKoZIhvcNAQEN
+          BQAwejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExDDAKBgNVBAcM
+          A1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0xKTAnBgNVBAMMIGhh
+          cmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMB4XDTIyMDkxNDE3MzI0MVoX
+          DTI0MTIxNzE3MzI0MVowejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3Ju
+          aWExDDAKBgNVBAcMA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0x
+          KTAnBgNVBAMMIGhhcmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMIICIjAN
+          BgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA8V3d1deT7Z7rj20fLOkTwlQdXMbg
+          yu++Avs3GL7YBtnMxSOK3SsZlLm8EPlO1jRU4qVMpBZsID3JtH+Y6Ds7YBP0Yvy5
+          oy3IYXC0eps0SFVKXm9PDsS3pe9w/puchM9EM2+g4u5fZzL1uQgsu/5/ZRgxDnl8
+          mnWK28MRgOFN5Mda0a9heAZF2NDihV1O81RNDJGiQ/5OI2NSBGO6TyqK6qhaVtkU
+          wfrMCU7FznilvpIReQWBRn++WzT73VNcADda2WyjfKJ2jhzoZzzLPhsjz5O1ifkc
+          VXncCrM9IN9svbzPA20anu2fAUIVEfzhRkRNceh5eE1llUblUsMaAQcxJScZ0KEd
+          aWb0Uj3MvcL71pzdS3Ua7zVfvimzg6OW//PwRuPZwqhGbKsmoL6TXHS9pjOkzzQ2
+          ELRbs20Xed4dIPvyrie7eK8pQRwraqCVcv6LU1iwH5twcvTcph4EyMD3L0b+yGtT
+          fL2vUZ+rAeNeD0SPXlItALckFx/Q73s6dattNItVLXsqzl9Y+7wDv66zq/QbJe4I
+          1zsAIYG8ev963kK4X4g2eu+NiyhPsROVuxAh5PhemGN2n6VpUkDiXf2joVtIU5YF
+          AZjbHxWx3x49akEGHK+WE4oteXzH23xrSYs/PyHENO5tCZB0M+pBpxr/rB7OD7dM
+          xCj3Ii/2mn8q3dkCAwEAAaOBqzCBqDAfBgNVHSMEGDAWgBRwua+bT3gDkM7fj+MV
+          97Hz4n9CuTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEF
+          BQcDATA5BgNVHREEMjAwgiBoYXJib3IuaDJvLTQtMTMzMy5oMm8udm13YXJlLmNv
+          bYIGaGFyYm9yhwQK3EZhMB0GA1UdDgQWBBTZ/O+Hsrt/XlsFbeMeYg0y2GmO0jAN
+          BgkqhkiG9w0BAQ0FAAOCAgEAkA8lY6y96B9upVG7wa4iylUEngqMkMJm0i37GSCG
+          h0kKDpd4wGK1AvnCzaLS6JF+QPA961paWmyuR4D2yUOJ5m2XgZdIptG/N668Nne1
+          pAulc47uBNTr6Um/JrprB8lGSaSs8Cg8sJHnmC7yrBPW6S0yJaO4l1GhafddgZKc
+          EgyliIM3EH0OS2QaOVlophVf06krTBiswVNeNRf/T/mcNSZAWPBF3wX+JKhaol25
+          dGGiYsZ+gBLO7JKRL4+wC36CO/jnxwvJi8OT1LT66DQxqOCd+F+kygtZvLU2b1wA
+          /vlfEY3le1u1T1BmJ1IqXjegmBtIelSn5/GdFoMKWzI2qBsOHh81C+LxKdAG2MJd
+          9QhoKXIkUuB+6HcfDsc4eozo3a8WnpAnoTmzWQqCRHa+EZ6vDk0PU7fd6hsQb89z
+          xJfZhLdnCLiCRq4cp5iak1+Ev9uTIPIRn1msJXHvcqQJUc9FGS0A6rrU5OnsauGw
+          UPPkd7R/xWIgYjquJSXg34y/oxpVxkMlFG5iYJG7nJyf4etxfMELf+vtSHwBjmx9
+          c6Wo3SUOCmVj8Bk4d3B3POiC+Cf2/0RRZjq+o6TcD+viwNp24A2rE+IJW8oX3+zV
+          FsTiM8PaXEPCawhxmfDDlSfI3FnOP5zX2/dvYUY9FoFRQyO2ckplCiDb04YHu5Xu
+          EOA=
+          -----END CERTIFICATE-----
+        repository: supply-chain
+        server: harbor.h2o-4-1333.h2o.vmware.com
+    - default: default
+      name: clusterBuilder
+    - default: ./Dockerfile
+      name: dockerfile
+    - default: ./
+      name: docker_build_context
+    - default: []
+      name: docker_build_extra_args
+    sources:
+    - name: source
+      resource: source-provider
+    templateRef:
+      kind: ClusterImageTemplate
+      options:
+      - name: kpack-template
+        selector:
+          matchFields:
+          - key: spec.params[?(@.name=="dockerfile")]
+            operator: DoesNotExist
+      - name: kaniko-template
+        selector:
+          matchFields:
+          - key: spec.params[?(@.name=="dockerfile")]
+            operator: Exists
+  - images:
+    - name: image
+      resource: image-builder
+    name: config-provider
+    params:
+    - name: serviceAccount
+      value: default
+    templateRef:
+      kind: ClusterConfigTemplate
+      name: convention-template
+  - configs:
+    - name: config
+      resource: config-provider
+    name: app-config
+    templateRef:
+      kind: ClusterConfigTemplate
+      name: config-template
+  - configs:
+    - name: config
+      resource: app-config
+    name: config-writer
+    params:
+    - name: serviceAccount
+      value: default
+    - name: registry
+      value:
+        ca_cert_data: |
+          -----BEGIN CERTIFICATE-----
+          MIIGLjCCBBagAwIBAgIUZ35en3Q+bQzGJJEy5N37gDO5xbAwDQYJKoZIhvcNAQEN
+          BQAwejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExDDAKBgNVBAcM
+          A1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0xKTAnBgNVBAMMIGhh
+          cmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMB4XDTIyMDkxNDE3MzI0MVoX
+          DTI0MTIxNzE3MzI0MVowejELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3Ju
+          aWExDDAKBgNVBAcMA1NGTzEPMA0GA1UECgwGVk13YXJlMQwwCgYDVQQLDANSUE0x
+          KTAnBgNVBAMMIGhhcmJvci5oMm8tNC0xMzMzLmgyby52bXdhcmUuY29tMIICIjAN
+          BgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA8V3d1deT7Z7rj20fLOkTwlQdXMbg
+          yu++Avs3GL7YBtnMxSOK3SsZlLm8EPlO1jRU4qVMpBZsID3JtH+Y6Ds7YBP0Yvy5
+          oy3IYXC0eps0SFVKXm9PDsS3pe9w/puchM9EM2+g4u5fZzL1uQgsu/5/ZRgxDnl8
+          mnWK28MRgOFN5Mda0a9heAZF2NDihV1O81RNDJGiQ/5OI2NSBGO6TyqK6qhaVtkU
+          wfrMCU7FznilvpIReQWBRn++WzT73VNcADda2WyjfKJ2jhzoZzzLPhsjz5O1ifkc
+          VXncCrM9IN9svbzPA20anu2fAUIVEfzhRkRNceh5eE1llUblUsMaAQcxJScZ0KEd
+          aWb0Uj3MvcL71pzdS3Ua7zVfvimzg6OW//PwRuPZwqhGbKsmoL6TXHS9pjOkzzQ2
+          ELRbs20Xed4dIPvyrie7eK8pQRwraqCVcv6LU1iwH5twcvTcph4EyMD3L0b+yGtT
+          fL2vUZ+rAeNeD0SPXlItALckFx/Q73s6dattNItVLXsqzl9Y+7wDv66zq/QbJe4I
+          1zsAIYG8ev963kK4X4g2eu+NiyhPsROVuxAh5PhemGN2n6VpUkDiXf2joVtIU5YF
+          AZjbHxWx3x49akEGHK+WE4oteXzH23xrSYs/PyHENO5tCZB0M+pBpxr/rB7OD7dM
+          xCj3Ii/2mn8q3dkCAwEAAaOBqzCBqDAfBgNVHSMEGDAWgBRwua+bT3gDkM7fj+MV
+          97Hz4n9CuTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEF
+          BQcDATA5BgNVHREEMjAwgiBoYXJib3IuaDJvLTQtMTMzMy5oMm8udm13YXJlLmNv
+          bYIGaGFyYm9yhwQK3EZhMB0GA1UdDgQWBBTZ/O+Hsrt/XlsFbeMeYg0y2GmO0jAN
+          BgkqhkiG9w0BAQ0FAAOCAgEAkA8lY6y96B9upVG7wa4iylUEngqMkMJm0i37GSCG
+          h0kKDpd4wGK1AvnCzaLS6JF+QPA961paWmyuR4D2yUOJ5m2XgZdIptG/N668Nne1
+          pAulc47uBNTr6Um/JrprB8lGSaSs8Cg8sJHnmC7yrBPW6S0yJaO4l1GhafddgZKc
+          EgyliIM3EH0OS2QaOVlophVf06krTBiswVNeNRf/T/mcNSZAWPBF3wX+JKhaol25
+          dGGiYsZ+gBLO7JKRL4+wC36CO/jnxwvJi8OT1LT66DQxqOCd+F+kygtZvLU2b1wA
+          /vlfEY3le1u1T1BmJ1IqXjegmBtIelSn5/GdFoMKWzI2qBsOHh81C+LxKdAG2MJd
+          9QhoKXIkUuB+6HcfDsc4eozo3a8WnpAnoTmzWQqCRHa+EZ6vDk0PU7fd6hsQb89z
+          xJfZhLdnCLiCRq4cp5iak1+Ev9uTIPIRn1msJXHvcqQJUc9FGS0A6rrU5OnsauGw
+          UPPkd7R/xWIgYjquJSXg34y/oxpVxkMlFG5iYJG7nJyf4etxfMELf+vtSHwBjmx9
+          c6Wo3SUOCmVj8Bk4d3B3POiC+Cf2/0RRZjq+o6TcD+viwNp24A2rE+IJW8oX3+zV
+          FsTiM8PaXEPCawhxmfDDlSfI3FnOP5zX2/dvYUY9FoFRQyO2ckplCiDb04YHu5Xu
+          EOA=
+          -----END CERTIFICATE-----
+        repository: supply-chain
+        server: harbor.h2o-4-1333.h2o.vmware.com
+    templateRef:
+      kind: ClusterTemplate
+      name: config-writer-template
+  selector:
+    apps.tanzu.vmware.com/workload-type: web
+status:
+  conditions:
+  - lastTransitionTime: "2022-09-16T21:12:29Z"
+    message: ""
+    reason: Ready
+    status: "True"
+    type: TemplatesReady
+  - lastTransitionTime: "2022-09-16T21:12:29Z"
+    message: ""
+    reason: Ready
+    status: "True"
+    type: Ready
+  observedGeneration: 1
